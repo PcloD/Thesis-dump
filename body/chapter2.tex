@@ -46,38 +46,65 @@ with and without proton beam
 
 \section[Electromagnetic simulations]{Electromagnetic simulations}
 
-A 3D parametric model was created in CST STUDIO SUITE\textregistered~2018 on the basis of the drawings provided by TRIUMF. The comparison between the CST model and the drawings is shown in Fig.~\ref{CSTvsSTEP} and Fig.~\ref{CSTvsSTEP_section}. It is important to note that none of the vacuum feedthrough was modeled in CST, as it is inaccurately reported also in the technical drawings as it constitutes industrial secret. In the simulations the signal is collected from the striplines through waveguide ports placed at the end of coaxial lines. The central cilindrical pin of the coaxial line is retained at the design value, while the surrounding vacuum diameter was selected in order to match the line impedance to $50\,\Omega$, in order to avoid unwanted reflections.
+A 3D parametric model was created in CST STUDIO SUITE\textregistered~2018 on the basis of the drawings provided by TRIUMF. The comparison between the CST model and the drawings is shown in Fig.~\ref{STEP_tipp} and Fig.~\ref{CSTvsSTEP_section}. It is important to note that none of the vacuum feedthrough was modeled in CST, as it is inaccurately reported also in the technical drawings as it constitutes industrial secret. In the simulations the signal is collected from the striplines through waveguide ports placed at the end of coaxial lines. The central cilindrical pin of the coaxial line is retained at the design value, while the surrounding vacuum diameter was selected in order to match the line impedance to $50\,\Omega$, in order to avoid unwanted reflections.
 
 The beam position monitor geometry is transversely symmetric. Whenever possible, this has been used to reduce the computing time, imposing boundary conditions.
 
 The simulations regarded mostly calculating the signal response to the beam excitation with different bunch lenghts and the full characterisation of the device as a four port network, calculating the scattering parameters. The former is realised via wakefield simulations, and the latter via frequency domain simulations.
 
-\begin{figure}[t]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=10cm,keepaspectratio]{pictures/tipp_paper}
+\caption{Schematic representation of a 60 mm aperture BPM\cite{Shengli:tipp}.}
+\label{STEP_tipp}
+\end{figure}
+
+\begin{figure}[ht]
 \centering
 \subfigure[CST model]
   {\includegraphics[width=6.5cm,height=5cm]{pictures/CST_section}}
 \hspace{3mm}
 \subfigure[TRIUMF mechanical model]
   {\includegraphics[width=6.5cm,height=5cm]{pictures/STEP_section}}
-\caption{3D models used in the electromagnetic simulations (a) and the original mechanical design (b). }
+\caption{3D models used in the electromagnetic simulations (a) and the original mechanical design (b).}
 \label{CSTvsSTEP_section}
 \end{figure}
 
 
-
 \subsection[Electrode signals]{Electrode signals}
 
-WAK sims
+Wakefield time domain simulations have been conduced using CST in order to evaluate the stripline response to the beam excitation. This type of simulation assumes a Gaussian beam. The beam parameters were chosen starting from the nominal proton beam used in the experiments, and the charge and bunch length was gradually decreased until reaching the electron beam parameters. Using wakefield simulation it is not possible to simulate both beams travelling in the vacuum pipe together. The simulated beam parameters are reported in Tab.~\ref{beam_param_wak:tab}.
+
+\begin{table}
+  \centering
+    \begin{tabular}{l c c c}
+    \toprule
+    Name  & \multicolumn{2}{c}{Charge} & $\sigma$\\
+          & nC & ppb & ps\\
+    \midrule
+    Proton beam								& $48$	  & $3\times10^{11}$	& 250	\\
+    Proton beam/10						& $4.8$	  & $3\times10^{10}$	& 25	\\
+    Proton beam/100						& $0.48$  & $3\times10^{9}$		& 2.5	\\
+    Electron beam							& $0.6$	  & $3.7\times10^{9}$	& 1		\\
+    \bottomrule
+    \end{tabular}
+  \caption{Beam parameters used in the wakefield simulations} \label{beam_param_wak:tab}
+\end{table}
+
+
+
 
 \subsection[Four-port device characterisation in simulations]{Four-port device characterisation in simulations}
 
 Sparam sims
 
+\subsection[Sensitivity studies to the beam position]{Sensitivity studies to the beam position}
+
+Sensitivity study for a proton-like beam
 
 
 
-
-\section[Design ptimisations]{Design optimisations}
+\section[Design optimisations]{Design optimisations}
 
 \subsection[Impedance matching of the stripline termination]{Impedance matching of the stripline termination}
 
