@@ -23,16 +23,37 @@ Two types of beam position monitors are installed in the beamlines. In the elect
 GENERALITIES ON THE ELECTRONICS
 
 
-\section[Beam spectrum]{Beam spectrum}
+\section[Signal generation]{Signal generation}
 
-Intro to section.
+The signal is the convolution of the beam spectrum and the pickup response function (is it appropriate to speak of transfer function???). Some words on delta/sigma.
 
-\subsection[Gaussian beams]{Gaussian beams}
+\subsection[Pickup response]{Pickup response}
 
-\subsection[Real beams]{Real beams}
+Lobes and BPM details for shorted striplines
+
+\subsection[Beam spectrum]{Beam spectrum}
+
+In the AWAKE experiment a short electron bunch is propagating in close temporal and spacial proximity with a long proton bunch before entering the plasma cell. The beam parameters are reported in Tab.~\ref{beam_param_exp:tab}. Due to the different bunch length and charge, signals with different bandwidth and magnitude are expected from the two bunches. Figure~\ref{gauss_bunch} shows the time signals and the frequency spectrum of a 250 ps-sigma, 3e11 ppb proton bunch and a 1 ps-sigma, 600 pC electron bunch. From plot (b) it is trivial to see that around $\approx2$~GHz the power of the electron and proton bunch signal has equal strength. At lower frequencies the proton component dominates, while at higher frequencies the electron component has a higher power.
+
+\begin{figure}[ht]
+\centering
+\subfigure[]
+  {\includegraphics[width=6.5cm,height=5cm]{pictures/gauss_time}}
+\hspace{3mm}
+\subfigure[]
+  {\includegraphics[width=6.5cm,height=5cm]{pictures/gauss_spectrum}}
+\caption{The bunch in time (a) and frequency (b) with the paramters of the proton and electron bunch reported in Tab.~\ref{beam_param_exp:tab}.}
+\label{gauss_bunch}
+\end{figure}
+
+Effect of a non-gaussian proton bunch. Extends more in spectrum.
+
+It is reasonable to assume the electrons as gaussian (QUOTE)
 
 
-\section[Measurements with beam]{Measurements with beam}
+
+
+\section[Measurements]{Measurements}
 
 A number of measurements performed on BPM51 with and without beam
 
@@ -44,9 +65,19 @@ with and without proton beam
 
 40 and 60 mm type
 
+\subsubsection[60 mm aperture model]{60 mm aperture model}
+
+60
+
+\subsubsection[40 mm aperture model]{40 mm aperture model}
+
+40
+
+
+
 \section[Electromagnetic simulations]{Electromagnetic simulations}
 
-A 3D parametric model was created in CST STUDIO SUITE\textregistered~2018 on the basis of the drawings provided by TRIUMF. The comparison between the CST model and the drawings is shown in Fig.~\ref{STEP_tipp} and Fig.~\ref{CSTvsSTEP_section}. It is important to note that none of the vacuum feedthrough was modeled in CST, as it is inaccurately reported also in the technical drawings as it constitutes industrial secret. In the simulations the signal is collected from the striplines through waveguide ports placed at the end of coaxial lines. The central cilindrical pin of the coaxial line is retained at the design value, while the surrounding vacuum diameter was selected in order to match the line impedance to $50\,\Omega$, in order to avoid unwanted reflections.
+A 3D simplified and parametric model was created in CST STUDIO SUITE\textregistered~2018 on the basis of the drawings provided by TRIUMF that were used for the series production. A new model was created from scratch instead of using the drawings in order to have the full control on the geometrical dimensions and gain in simplicity. This will be exploited when trying to optimise the design, as explained in Section~\ref{sec:optimisations}. A comparison between the two showed that they agree within the mechanical tolerances provided in the design. The the CST model and its comparison to the TRIUMF drawings are shown in Fig.~\ref{STEP_tipp} and Fig.~\ref{CSTvsSTEP_section}. It is important to note that none of the vacuum feedthrough was modeled in CST, as it is inaccurately reported also in the technical drawings as it constitutes industrial secret. In the simulations the signal is collected from the striplines through waveguide ports placed at the end of coaxial lines. The central cilindrical pin of the coaxial line is retained at the design value, while the surrounding vacuum diameter was selected in order to match the line impedance to $50\,\Omega$, in order to avoid unwanted reflections.
 
 The beam position monitor geometry is transversely symmetric. Whenever possible, this has been used to reduce the computing time, imposing boundary conditions.
 
@@ -75,7 +106,7 @@ The simulations regarded mostly calculating the signal response to the beam exci
 
 Wakefield time domain simulations have been conduced using CST in order to evaluate the stripline response to the beam excitation. This type of simulation assumes a Gaussian beam. The beam parameters were chosen starting from the nominal proton beam used in the experiments, and the charge and bunch length was gradually decreased until reaching the electron beam parameters. Using wakefield simulation it is not possible to simulate both beams travelling in the vacuum pipe together. The simulated beam parameters are reported in Tab.~\ref{beam_param_wak:tab}.
 
-\begin{table}
+\begin{table}[ht]
   \centering
     \begin{tabular}{l c c c}
     \toprule
@@ -96,15 +127,24 @@ Wakefield time domain simulations have been conduced using CST in order to evalu
 
 \subsection[Four-port device characterisation in simulations]{Four-port device characterisation in simulations}
 
-Sparam sims
+Frequency domain simulations were carried out to characterise the BPM as a four port network, in order to compare to the VNA measurements carried out in the laboratory and in the tunnel. For simmetry reasons, it is sufficient to simulate half the structure obtaining anyway the full characterisation of the device including the cross-coupling between the electrodes.
+
+
+
+
 
 \subsection[Sensitivity studies to the beam position]{Sensitivity studies to the beam position}
 
 Sensitivity study for a proton-like beam
 
 
+\section[Comparison between measurements and simulations]{Comparison between measurements and simulations}
+
+comp
+
 
 \section[Design optimisations]{Design optimisations}
+\label{sec:optimisations}
 
 \subsection[Impedance matching of the stripline termination]{Impedance matching of the stripline termination}
 
@@ -118,3 +158,7 @@ Mention that in the development phase, this geometry was optimised using the ANS
 \subsection[Geometrical optimisation of the space behind the stripline]{Geometrical optimisation of the space behind the stripline}
 
 Same process, but for the
+
+
+
+\section[Conclusions]{Conclusions}
